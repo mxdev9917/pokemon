@@ -31,12 +31,15 @@ fetch('https://pokeapi.co/api/v2/pokemon')
                     return ress.json()
                 }).then(data => {
 
-                    const pEle = document.createElement('p')
-                    pEle.textContent = data.name;
+                    const aEle = document.createElement('a')
+                    aEle.textContent = data.name;
+                    
+                   aEle.href = `/detail.html? name=${data.name}`;
                     const imgEle = document.createElement('img')
                     imgEle.src = data.sprites.front_default
-                    contentEle.append(pEle)
-                    pEle.append(imgEle)
+                    console.log(data.sprites.front_default);
+                    contentEle.append(aEle)
+                    aEle.append(imgEle)
                 })
         }
     })
